@@ -91,4 +91,50 @@ public class Job {
     public int getId() {
         return id;
     }
+    public String toString(){
+        final String DEFAULT_VALUE = "Data not available";
+        String output = "";
+        if(this.getName() == null && this.getCoreCompetency() == null && this.getPositionType() == null && this.getLocation() == null && this.getEmployer() == null){
+            output = "OOPS! This job does not seem to exist.";
+            return "\n" + output + "\n";
+        }
+        output += "\nID: " + this.getId() + "\nName: ";
+        if (this.getName() == null || this.getName() == ""){
+            output += DEFAULT_VALUE;
+        }
+        else{
+            output += this.getName();
+        }
+        output += "\nEmployer: ";
+        if (this.getEmployer().getValue() == null || this.getEmployer().getValue() == ""){
+            output += DEFAULT_VALUE;
+        }
+        else{
+            output += this.getEmployer();
+        }
+        output += "\nLocation: ";
+        if(this.getLocation().getValue() == null || this.getLocation().getValue() == ""){
+            output += DEFAULT_VALUE;
+        }
+        else{
+            output += this.getLocation();
+        }
+        output += "\nPosition Type: ";
+        if(this.getPositionType().getValue() == null || this.getPositionType().getValue() == ""){
+            output += DEFAULT_VALUE;
+        }
+        else{
+            output += this.getPositionType();
+        }
+        output += "\nCore Competency: ";
+        if(this.getCoreCompetency().getValue() == null || this.getCoreCompetency().getValue() == ""){
+            output += DEFAULT_VALUE;
+        }
+        else{
+            output += this.getCoreCompetency();
+        }
+
+
+        return output + "\n";
+    }
 }
